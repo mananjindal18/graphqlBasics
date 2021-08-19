@@ -4,12 +4,24 @@ const typeDefs = gql`
         paymentID:String,
         price:String
     }
+    type apiResponse{
+        message:String,
+        isSuccess:Boolean,
+        data:Payment
+    }
+    type apiResponseArray{
+        message:String,
+        isSuccess:Boolean,
+        data:[Payment]
+    }
     type Query{
-        getPayment(paymentID:String!):String,
-        getAllPayment:String
+        getPayment(paymentID:String!):Payment,
+        getAllPayment:apiResponseArray
     }
     type Mutation{
-        addPayment(price:String):String
+        addPayment(paymentID:String, price:String):apiResponse,
+        updatePayment(paymentID:String,price:String):apiResponse,
+        deletePayment(paymentID:String):apiResponse
     }
 `
 module.exports = typeDefs
