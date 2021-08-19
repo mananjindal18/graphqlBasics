@@ -37,3 +37,4 @@ mongoose.connect('mongodb+srv://graphql:graphql@cluster0.1exqh.mongodb.net/graph
 })
 .then(()=> console.log("MongoDB Connected"))
 .catch((err)=> console.log(err));
+module.exports = app;
